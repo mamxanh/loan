@@ -122,16 +122,16 @@ loanBtn.addEventListener("click", () => {
                if (timeN < 1) return;
                tbody.innerHTML += tbodyHTML;
           }
-          /*Tổng lãi */ loanSumRate.innerHTML = handleFormat(sumRate) + " vnđ";
+          /*Tổng lãi */ loanSumRate.innerHTML = handleFormat(sumRate) + " đ";
           loanRateAll.innerHTML = loanSumRate.innerHTML;
-          /* Tổng trả */ loansumAll.innerHTML = handleFormat(loanAll) + " vnđ";
+          /* Tổng trả */ loansumAll.innerHTML = handleFormat(loanAll) + " đ";
           /* Trả trước */ loanPrepay.innerHTML =
                ` (${100 - progress.value * 1})%       ` +
                handleFormat(prepay) +
-               " vnđ";
-          loanPay.innerHTML = handleFormat(loanAll + prepay) + " vnđ";
-          loanFirstmonth.innerHTML = handleFormat(firstMonth) + " vnđ";
-          loanLastMonth.innerHTML = handleFormat(lastMonth) + " vnđ";
+               " đ";
+          loanPay.innerHTML = handleFormat(loanAll + prepay) + " đ";
+          loanFirstmonth.innerHTML = handleFormat(firstMonth) + " đ";
+          loanLastMonth.innerHTML = handleFormat(lastMonth) + " đ";
      } else {
           alert("Vui lòng nhập đủ thông tin dự toán");
      }
