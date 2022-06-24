@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Document</title>
+          <link rel="stylesheet" href="./app.css" />
+     </head>
+     <body>
+         <div id="loan-main">
+          <div class="loan-container-input">
+                    <div class="loan-item">
+                              <span class="loan-title">Giá trị nhà</span>
+                                        <input type="text"class="loan-number loan-price" data-type="currency"></input> 
+                                        <input id="value"class="progress-loan"type="range" min="0" max="100" step="1" value="0"></input>
+                    </div>
+                    <div class="loan-item">
+                              <span  class="loan-title">Số tiền vay</span>
+                              <div class="loan-cover">
+                                        <input type="text" class="loan-number loan-money" value="0" data-type="currency"> </input> 
+                                        <div type="text" class="loan-percent-item"></div> 
+                              </div>
+                                     
+                              <input id="loan"class="progress-loan"type="range" min="0" max="100" step="1" value="0"></input>
+                    </div>
+                    <div class="loan-item">
+                              <span class="loan-title">Lãi suất</span>
+                              <div class="loan-cover"> 
+                                        <input type="number"class="loan-number progress-rate"></input> 
+                                        <div type="text" class="loan-percent-item"> %/Năm</div> 
+           </div>
+                             
+                              <input id="rate"class="progress-loan"type="range" min="0" max="100" step="0.1" value="0"></input>
+                    </div>
+                    <div class="loan-item">
+                              <span  class="loan-title">Thời hạn vay</span>
+                              <div class="loan-cover"> 
+                                        <input type="number" class="loan-number  progress-time"></input>  
+                                        <div type="text" class="loan-percent-item">Tháng</div> 
+                              </div>
+                          
+                              <input id="time"class="progress-loan"type="range" min="0" max="500" step="1" value="0"></input>
+                    </div>
+                   
+          </div>
+          <button type="button" class="loan-btn">Dự toán chi phí</button>
+          <div class="loan-information">
+               <div class="loan-total-pay">
+                 <span>Thông tin ước tính chỉ cho mục đích tham khảo</span>
+                 <span>Tổng tiền phải trả</span>
+                 <span class="loan-pay"></span>
+               </div>
+               <div class="loan-detail">
+                 <span>Trả trước: <span class=" loan-detail--item loan-prepay"></span></span>
+                 <span>Trả tháng đầu: <span class=" loan-detail--item loan-firstmonth"></span></span> 
+                 <span>Tổng tiền lãi: <span class="loan-detail--item loan-rateall"></span></span>
+                 <span></span>
+               </div>
+  </div>
+  <div class="table-container">
+          <table class="loan-table">
+               <thead>
+                    <tr>
+                         <th>Kỳ trả nợ</th>
+                         <th>Số gốc còn lại</th>
+                         <th>Gốc</th>
+                         <th>Lãi</th>
+                         <th>Tiền trả hàng tháng</th>
+                    </tr>
+               </thead>
+               <tbody>
+               </tbody>
+               <thead>
+                    <tr>
+                         <th>Tổng</th>
+                         <th></th>
+                         <th ></th>
+                         <th class="loan-rate-sum"></th>
+                         <th class="loan-all"></th>
+                    </tr>
+               </thead>
+          </table>
+     </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+          <script src="./index.js"></script>
+     </body>
+</html>
