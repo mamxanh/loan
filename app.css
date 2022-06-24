@@ -52,13 +52,13 @@ h6 {
 /* _______________________________________ */
 #loan-main {
      padding: 50px 0;
-     padding-bottom: 250px;
+     padding-bottom: 360px;
      width: 100%;
      overflow: hidden;
      height: auto;
      display: flex;
+     margin-left: 0.5%;
      justify-content: center;
-     align-items: center;
      flex-direction: column;
      gap: 35px;
 }
@@ -70,7 +70,7 @@ h6 {
      justify-content: center;
 }
 .loan-total-title {
-     font-size: 18px;
+     font-size: 15px;
 }
 .loan-total-pay,
 .loan-detail {
@@ -199,9 +199,9 @@ input:focus {
      border-collapse: collapse;
      margin: 0 auto;
      width: 1000px;
-     background: rgba(136, 136, 136, 0.071);
+     border-spacing: 0;
+     background: rgba(233, 233, 233, 0.026);
      display: none;
-     overflow-x: auto;
 }
 .loan-table {
      -ms-overflow-style: none;
@@ -234,7 +234,8 @@ td {
      text-align: left;
      font-size: 12px;
      text-align: center;
-     border: 1px solid #ccc;
+     border: 0.05px solid rgba(61, 61, 61, 0.105);
+     font-weight: normal;
 }
 
 tbody {
@@ -271,14 +272,13 @@ tbody::-webkit-scrollbar {
           display: block;
           width: 100%;
           padding-left: 10px;
-          font-size: 13px;
+          font-size: 11px;
      }
      #value {
           display: none;
      }
      .table-container {
-          max-width: 380px;
-          overflow-x: scroll;
+          max-width: 370px;
      }
      .loan-information {
           flex-direction: column;
@@ -287,12 +287,32 @@ tbody::-webkit-scrollbar {
           align-items: center;
           justify-content: center;
      }
-
+     .loan-detail--item,
+     .loan-total-title,
+     .loan-ex {
+          font-size: 13px;
+     }
      .loan-total-pay,
      .loan-detail {
           width: unset;
      }
      .loan-pay {
-          font-size: 35px;
+          font-size: 25px;
+     }
+     td,
+     th {
+          min-width: 77px;
+     }
+
+     th,
+     td {
+          padding: 2px;
+          text-align: left;
+          font-size: 8px;
+          text-align: center;
+          border: 0.05px solid #ccc;
+     }
+     .loan-detail > div {
+          font-size: 12px;
      }
 }

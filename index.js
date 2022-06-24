@@ -21,7 +21,7 @@ const loanLastMonth = document.querySelector(".loan-lastmonth");
 // ____________________________________________________
 let loanAPercent = 0;
 inputPrice.oninput = () => {
-     inputPrice.value = formatNumber(inputPrice.value);
+     inputPrice.value = inputPrice.value;
      inputMoney.value = 0;
      loanAPercent = +inputPrice.value.replaceAll(",", "") / 100;
      return loanAPercent;
@@ -86,9 +86,9 @@ loanBtn.addEventListener("click", () => {
      // const rateall = inputPriceN - inputMoneyN;
      const handleFormat = (a) => {
           a = a
-               .toFixed(2)
-               .replace(/\d(?=(\d{3})+\.)/g, "$&,")
-               .replace(".0", "");
+               .toFixed()
+               .replace(/\D/g, "")
+               .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
           return a;
      };
      const firstMonth =
@@ -122,16 +122,16 @@ loanBtn.addEventListener("click", () => {
                if (timeN < 1) return;
                tbody.innerHTML += tbodyHTML;
           }
-          /*Tổng lãi */ loanSumRate.innerHTML = handleFormat(sumRate) + " vnđ";
+          /*Tổng lãi */ loanSumRate.innerHTML = handleFormat(sumRate) + " đ";
           loanRateAll.innerHTML = loanSumRate.innerHTML;
-          /* Tổng trả */ loansumAll.innerHTML = handleFormat(loanAll) + " vnđ";
+          /* Tổng trả */ loansumAll.innerHTML = handleFormat(loanAll) + " đ";
           /* Trả trước */ loanPrepay.innerHTML =
                ` (${100 - progress.value * 1})%       ` +
                handleFormat(prepay) +
-               " vnđ";
-          loanPay.innerHTML = handleFormat(loanAll + prepay) + " vnđ";
-          loanFirstmonth.innerHTML = handleFormat(firstMonth) + " vnđ";
-          loanLastMonth.innerHTML = handleFormat(lastMonth) + " vnđ";
+               " đ";
+          loanPay.innerHTML = handleFormat(loanAll + prepay) + " đ";
+          loanFirstmonth.innerHTML = handleFormat(firstMonth) + " đ";
+          loanLastMonth.innerHTML = handleFormat(lastMonth) + " đ";
      } else {
           alert("Vui lòng nhập đủ thông tin dự toán");
      }
