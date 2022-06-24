@@ -21,7 +21,7 @@ const loanLastMonth = document.querySelector(".loan-lastmonth");
 // ____________________________________________________
 let loanAPercent = 0;
 inputPrice.oninput = () => {
-     inputPrice.value = inputPrice.value;
+     inputPrice.value = formatNumber(inputPrice.value);
      inputMoney.value = 0;
      loanAPercent = +inputPrice.value.replaceAll(",", "") / 100;
      return loanAPercent;
@@ -85,11 +85,11 @@ loanBtn.addEventListener("click", () => {
      const prepay = inputPriceN - inputMoneyN;
      // const rateall = inputPriceN - inputMoneyN;
      const handleFormat = (a) => {
-          a = a
+          return a
                .toFixed()
                .replace(/\D/g, "")
-               .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-          return a;
+               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+               .replace(".00", "");
      };
      const firstMonth =
           inputMoneyN / timeN +
@@ -122,16 +122,16 @@ loanBtn.addEventListener("click", () => {
                if (timeN < 1) return;
                tbody.innerHTML += tbodyHTML;
           }
-          /*Tổng lãi */ loanSumRate.innerHTML = handleFormat(sumRate) + " đ";
+          /*Tổng lãi */ loanSumRate.innerHTML = handleFormat(sumRate) + " vnđ";
           loanRateAll.innerHTML = loanSumRate.innerHTML;
-          /* Tổng trả */ loansumAll.innerHTML = handleFormat(loanAll) + " đ";
+          /* Tổng trả */ loansumAll.innerHTML = handleFormat(loanAll) + " vnđ";
           /* Trả trước */ loanPrepay.innerHTML =
                ` (${100 - progress.value * 1})%       ` +
                handleFormat(prepay) +
-               " đ";
-          loanPay.innerHTML = handleFormat(loanAll + prepay) + " đ";
-          loanFirstmonth.innerHTML = handleFormat(firstMonth) + " đ";
-          loanLastMonth.innerHTML = handleFormat(lastMonth) + " đ";
+               " vnđ";
+          loanPay.innerHTML = handleFormat(loanAll + prepay) + " vnđ";
+          loanFirstmonth.innerHTML = handleFormat(firstMonth) + " vnđ";
+          loanLastMonth.innerHTML = handleFormat(lastMonth) + " vnđ";
      } else {
           alert("Vui lòng nhập đủ thông tin dự toán");
      }
