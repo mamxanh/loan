@@ -200,12 +200,9 @@ input:focus {
 .loan-table {
      table-layout: fixed;
      border-collapse: collapse;
-     margin: 0 auto;
      width: 1001px;
      border-spacing: 0;
-     background: rgba(233, 233, 233, 0.026);
      display: none;
-     margin-left: 14px;
 }
 .loan-table {
      -ms-overflow-style: none;
@@ -260,27 +257,21 @@ tbody::-webkit-scrollbar {
      background-color: var(--loan-clr-05);
 } */
 @media screen and (max-width: 767px) {
-     .loan-main {
-          gap: 15px;
-     }
+     .loan-main,
      .loan-container-input {
-          gap: 10px !important;
+          gap: 12px;
      }
      .loan-number {
           width: 280px;
      }
-
-     .loan-number.loan-price {
+     .loan-number.loan-price,
+     .progress-loan {
           width: 320px;
      }
      .loan-percent-item {
           width: 40px;
           font-size: 10px;
      }
-     .progress-loan {
-          width: 320px;
-     }
-
      .loan-item {
           padding: 0;
           justify-content: center;
@@ -299,6 +290,7 @@ tbody::-webkit-scrollbar {
      .table-container {
           position: relative;
           height: 710px;
+          margin: 0 1.5px;
      }
      .loan-information {
           width: 390px;
