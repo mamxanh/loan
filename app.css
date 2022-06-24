@@ -57,7 +57,6 @@ h6 {
      overflow: hidden;
      height: auto;
      display: flex;
-     margin-left: 0.5%;
      justify-content: center;
      flex-direction: column;
      gap: 35px;
@@ -206,6 +205,7 @@ input:focus {
      border-spacing: 0;
      background: rgba(233, 233, 233, 0.026);
      display: none;
+     margin-left: 14px;
 }
 .loan-table {
      -ms-overflow-style: none;
@@ -266,6 +266,21 @@ tbody::-webkit-scrollbar {
      .loan-container-input {
           gap: 10px !important;
      }
+     .loan-number {
+          width: 280px;
+     }
+
+     .loan-number.loan-price {
+          width: 320px;
+     }
+     .loan-percent-item {
+          width: 40px;
+          font-size: 10px;
+     }
+     .progress-loan {
+          width: 320px;
+     }
+
      .loan-item {
           padding: 0;
           justify-content: center;
@@ -275,14 +290,14 @@ tbody::-webkit-scrollbar {
           text-align: left;
           display: block;
           width: 100%;
-          padding-left: 10px;
+          padding-left: 40px;
           font-size: 11px;
      }
      #value {
           display: none;
      }
      .table-container {
-          max-width: 370px;
+          position: relative;
           height: 710px;
      }
      .loan-information {
@@ -295,9 +310,6 @@ tbody::-webkit-scrollbar {
      .loan-total-title,
      .loan-ex {
           font-size: 13px;
-     }
-     .loan-total-pay,
-     .loan-detail {
      }
      .loan-pay {
           font-size: 25px;
