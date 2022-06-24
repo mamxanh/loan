@@ -290,9 +290,8 @@ tbody::-webkit-scrollbar {
           display: none;
      }
      .table-container {
-          position: relative;
-          height: 710px;
-          margin-left: 2px;
+          height: 700px;
+          padding: 0 5px;
      }
      .loan-information {
           width: 390px;
