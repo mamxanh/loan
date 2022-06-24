@@ -21,6 +21,7 @@ const loanRateAll = document.querySelector(".loan-rateall");
 let loanAPercent = 0;
 inputPrice.oninput = () => {
      inputPrice.value = formatNumber(inputPrice.value);
+     inputMoney.value = 0;
      loanAPercent = +inputPrice.value.replaceAll(",", "") / 100;
      return loanAPercent;
 };
