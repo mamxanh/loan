@@ -50,7 +50,7 @@ h6 {
 /* _______________________________________ */
 #loan-main {
      padding: 50px 0;
-     padding-bottom: 200px;
+     padding-bottom: 250px;
      height: auto;
      display: flex;
      justify-content: center;
@@ -87,6 +87,7 @@ h6 {
      align-items: center;
      flex-wrap: wrap;
      gap: 25px;
+     column-gap: 0;
 }
 .loan-item {
      display: flex;
@@ -156,8 +157,8 @@ input:focus {
 .progress-loan::-webkit-slider-thumb {
      -webkit-appearance: none;
      appearance: none;
-     width: 12px;
-     height: 12px;
+     width: 15px;
+     height: 15px;
      border-radius: 50%;
      background: var(--loan-clr-500);
      cursor: grab;
@@ -218,6 +219,7 @@ td {
 tbody {
      display: block;
      overflow-y: scroll;
+     overflow-x: hidden;
      width: 100%;
      max-height: 400px;
 }
@@ -232,6 +234,15 @@ tbody::-webkit-scrollbar {
      background-color: var(--loan-clr-05);
 } */
 @media screen and (max-width: 767px) {
+     .loan-main {
+          gap: 15px;
+     }
+     .loan-container-input {
+          gap: 10px;
+     }
+     #value {
+          display: none;
+     }
      .table-container {
           max-width: 380px;
           overflow: scroll;
