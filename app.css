@@ -45,7 +45,7 @@ h6 {
      --loan-clr-500: #008876;
      --loan-clr-text: #00474f;
      --loan-clr-100: #4f777d8d;
-     --loan-clr-05: #89bbac79;
+     --loan-clr-05: #a0a0a038;
 }
 /* _______________________________________ */
 #loan-main {
@@ -111,6 +111,7 @@ input:focus {
 }
 .loan-percent-item {
      color: var(--loan-clr-text);
+     background-color: var(--loan-clr-05);
      width: 80px;
      height: 35px;
      text-align: center;
