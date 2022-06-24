@@ -69,6 +69,9 @@ h6 {
      align-items: center;
      justify-content: center;
 }
+.loan-total-title {
+     font-size: 18px;
+}
 .loan-total-pay,
 .loan-detail {
      display: flex;
@@ -288,5 +291,8 @@ tbody::-webkit-scrollbar {
      .loan-total-pay,
      .loan-detail {
           width: unset;
+     }
+     .loan-pay {
+          font-size: 35px;
      }
 }
