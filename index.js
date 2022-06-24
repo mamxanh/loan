@@ -17,6 +17,7 @@ const loanInfo = document.querySelector(".loan-information");
 const loanPrepay = document.querySelector(".loan-prepay");
 const loanFirstmonth = document.querySelector(".loan-firstmonth");
 const loanRateAll = document.querySelector(".loan-rateall");
+const loanLastMonth = document.querySelector(".loan-lastmonth");
 
 let loanAPercent = 0;
 inputPrice.oninput = () => {
@@ -84,10 +85,20 @@ loanBtn.addEventListener("click", () => {
      const timeN = progressTime.value.replaceAll(",", "") * 1;
      const inputPriceN = inputPrice.value.replaceAll(",", "") * 1;
      const prepay = inputPriceN - inputMoneyN;
-     const rateall = inputPriceN - inputMoneyN;
+     // const rateall = inputPriceN - inputMoneyN;
+     const handleFormat = (a) => {
+          a = a
+               .toFixed(2)
+               .replace(/\d(?=(\d{3})+\.)/g, "$&,")
+               .replace(".0", "");
+          return a;
+     };
      const firstMonth =
           inputMoneyN / timeN +
           (inputMoneyN - (inputMoneyN / timeN) * 0) * (rateN / 100);
+     const lastMonth =
+          inputMoneyN / timeN +
+          (inputMoneyN - (inputMoneyN / timeN) * (timeN - 1)) * (rateN / 100);
      if (rateN > 0 && inputMoneyN > 0 && timeN > 0 && inputPriceN > 0) {
           loanTable.style.display = "block";
           loanInfo.style.display = "flex";
@@ -97,55 +108,35 @@ loanBtn.addEventListener("click", () => {
           let loanAll = 0;
           for (let index = 1; index < timeN + 1; index++) {
                let goc = inputMoneyN - (inputMoneyN / timeN) * index;
-
                let lai =
                     (inputMoneyN - (inputMoneyN / timeN) * (index - 1)) *
                     (rateN / 100);
                let gop = inputMoneyN / timeN + lai;
                sumRate += lai;
                loanAll += gop;
-
                let tbodyHTML = `<tr>
                <th>Tháng thứ ${index}</th>
-               <th>${goc.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, "$&,")}</th>
-               <th>${(inputMoneyN / timeN)
-                    .toFixed(1)
-                    .replace(/\d(?=(\d{3})+\.)/g, "$&,")}</th>
-               <th>${lai.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, "$&,")}</th>
-               <th>${gop.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, "$&,")}</th>
+               <th>${handleFormat(goc)}</th>
+               <th>${handleFormat(inputMoneyN / timeN)}</th>
+               <th>${handleFormat(lai)}</th>
+               <th>${handleFormat(gop)}</th>
           </tr>`;
                if (timeN < 1) return;
                tbody.innerHTML += tbodyHTML;
           }
-          loanSumRate.innerHTML =
-               sumRate
-                    .toFixed(1)
-                    .replace(/\d(?=(\d{3})+\.)/g, "$&,")
-                    .replace(".0", "") + " vnđ";
+          /*Tổng lãi */ loanSumRate.innerHTML = handleFormat(sumRate) + " vnđ";
           loanRateAll.innerHTML = loanSumRate.innerHTML;
-          loansumAll.innerHTML =
-               loanAll
-                    .toFixed(1)
-                    .replace(/\d(?=(\d{3})+\.)/g, "$&,")
-                    .replace(".0", "") + " vnđ";
-
-          loanPrepay.innerHTML =
-               prepay
-                    .toFixed(1)
-                    .replace(/\d(?=(\d{3})+\.)/g, "$&,")
-                    .replace(".0", "") +
-               " vnđ" +
-               ` (${100 - progress.value * 1})%`;
-          loanPay.innerHTML =
-               (loanAll + prepay)
-                    .toFixed(1)
-                    .replace(/\d(?=(\d{3})+\.)/g, "$&,")
-                    .replace(".0", "") + " vnđ";
-          loanFirstmonth.innerHTML =
-               firstMonth
-                    .toFixed(1)
-                    .replace(/\d(?=(\d{3})+\.)/g, "$&,")
-                    .replace(".0", "") + " vnđ";
+          /* Tổng trả */ loansumAll.innerHTML = handleFormat(loanAll) + " vnđ";
+          /* Trả trước */ loanPrepay.innerHTML =
+               ` (${100 - progress.value * 1})%       ` +
+               handleFormat(prepay) +
+               " vnđ";
+          loanPay.innerHTML = handleFormat(loanAll + prepay) + " vnđ";
+          loanFirstmonth.innerHTML = handleFormat(firstMonth) + " vnđ";
+          loanLastMonth.innerHTML = handleFormat(lastMonth) + " vnđ";
+          // ` (${progress.value * 1})%       ` +
+          // formatNumber(inputMoney.value) +
+          // " vnđ";
      } else {
           alert("Vui lòng nhập đủ thông tin dự toán");
      }
