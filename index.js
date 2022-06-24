@@ -18,7 +18,7 @@ const loanPrepay = document.querySelector(".loan-prepay");
 const loanFirstmonth = document.querySelector(".loan-firstmonth");
 const loanRateAll = document.querySelector(".loan-rateall");
 const loanLastMonth = document.querySelector(".loan-lastmonth");
-
+// ____________________________________________________
 let loanAPercent = 0;
 inputPrice.oninput = () => {
      inputPrice.value = formatNumber(inputPrice.value);
@@ -38,7 +38,7 @@ progressTime.oninput = () => {
           return (progressTime.value = 0);
      }
 };
-output.innerText = progress.value;
+output.innerText = progress.value + "%";
 progress.oninput = () => {
      output.innerText = progress.value + "%";
      let inputMoneyFormat = parseInt(loanAPercent * progress.value);
@@ -55,16 +55,15 @@ inputMoney.oninput = () => {
           1 *
           100
      ).toFixed(1);
-     if (a <= 100) {
+     if (a <= 50) {
           progress.value = a;
           output.innerText = a.replace(".0", "") + "%";
      } else {
           inputMoney.value = inputPrice.value;
-          output.innerText = 100 + "%";
-          progress.value = 100;
+          output.innerText = 50 + "%";
+          progress.value = 50;
      }
 };
-
 progressRate.value = rate.value;
 rate.oninput = () => {
      progressRate.value = rate.value;
@@ -73,7 +72,6 @@ progressTime.value = time.value;
 time.oninput = () => {
      progressTime.value = time.value;
 };
-
 function formatNumber(n) {
      // format number 1000000 to 1,234,567
      return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -134,9 +132,6 @@ loanBtn.addEventListener("click", () => {
           loanPay.innerHTML = handleFormat(loanAll + prepay) + " vnđ";
           loanFirstmonth.innerHTML = handleFormat(firstMonth) + " vnđ";
           loanLastMonth.innerHTML = handleFormat(lastMonth) + " vnđ";
-          // ` (${progress.value * 1})%       ` +
-          // formatNumber(inputMoney.value) +
-          // " vnđ";
      } else {
           alert("Vui lòng nhập đủ thông tin dự toán");
      }
