@@ -127,7 +127,7 @@ loanBtn.addEventListener("click", () => {
                     .toFixed(1)
                     .replace(/\d(?=(\d{3})+\.)/g, "$&,")
                     .replace(".0", "") + " vnđ";
-          loanPay.innerHTML = loansumAll.innerHTML;
+
           loanPrepay.innerHTML =
                prepay
                     .toFixed(1)
@@ -135,6 +135,11 @@ loanBtn.addEventListener("click", () => {
                     .replace(".0", "") +
                " vnđ" +
                ` (${100 - progress.value * 1})%`;
+          loanPay.innerHTML =
+               (loanAll + prepay)
+                    .toFixed(1)
+                    .replace(/\d(?=(\d{3})+\.)/g, "$&,")
+                    .replace(".0", "") + " vnđ";
           loanFirstmonth.innerHTML =
                firstMonth
                     .toFixed(1)
