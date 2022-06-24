@@ -44,8 +44,8 @@ h6 {
      overflow-wrap: break-word;
 }
 :root {
-     --loan-clr-500: #008876;
-     --loan-clr-text: #00474f;
+     --loan-clr-500: #006f6f;
+     --loan-clr-text: #00354f;
      --loan-clr-100: #4f777d8d;
      --loan-clr-05: #a0a0a038;
 }
@@ -269,14 +269,7 @@ tbody::-webkit-scrollbar {
      }
      .table-container {
           max-width: 380px;
-          overflow: scroll;
-     }
-     .table-container {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-     }
-     .table-container::-webkit-scrollbar {
-          display: none;
+          overflow-x: scroll;
      }
      .loan-information {
           flex-direction: column;
