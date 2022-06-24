@@ -75,6 +75,7 @@ function formatNumber(n) {
      // format number 1000000 to 1,234,567
      return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
 loanBtn.addEventListener("click", () => {
      const rateN = progressRate.value / 12;
      const inputMoneyN = inputMoney.value.replaceAll(",", "") * 1;
