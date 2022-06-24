@@ -43,6 +43,8 @@ h5,
 h6 {
      overflow-wrap: break-word;
 }
+/* _______________________________________ */
+
 :root {
      --loan-clr-500: #006f6f;
      --loan-clr-text: #00354f;
@@ -132,7 +134,7 @@ input:focus {
      border-radius: 0px 3px 3px 0;
      border: 1px solid var(--loan-clr-500);
      border-left: none;
-     line-height: 35px;
+     line-height: 37px;
 }
 .loan-title {
      color: var(--loan-clr-text);
@@ -270,7 +272,7 @@ tbody::-webkit-scrollbar {
      }
      .loan-percent-item {
           width: 40px;
-          font-size: 10px;
+          font-size: 11px;
      }
      .loan-item {
           padding: 0;
@@ -290,7 +292,7 @@ tbody::-webkit-scrollbar {
      .table-container {
           position: relative;
           height: 710px;
-          margin: 0 1.5px;
+          margin-left: 2px;
      }
      .loan-information {
           width: 390px;
