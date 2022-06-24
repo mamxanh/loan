@@ -190,7 +190,14 @@ input:focus {
      width: 1000px;
      background: rgba(136, 136, 136, 0.071);
      display: none;
-     overflow-x: scroll;
+     overflow-x: auto;
+}
+.loan-table {
+     -ms-overflow-style: none;
+     scrollbar-width: none;
+}
+.loan-table::-webkit-scrollbar {
+     display: none;
 }
 
 thead {
