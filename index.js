@@ -31,6 +31,7 @@ progressRate.oninput = () => {
      rate.value = progressRate.value;
 };
 progressTime.oninput = () => {
+     time.value = progressTime.value;
      if (progressTime.value.replaceAll(",", "") * 1 > 500) {
           return (progressTime.value = 0);
      }
@@ -120,21 +121,13 @@ loanBtn.addEventListener("click", () => {
                     .toFixed(1)
                     .replace(/\d(?=(\d{3})+\.)/g, "$&,")
                     .replace(".0", "") + " vnđ";
-          loanRateAll.innerHTML =
-               sumRate
-                    .toFixed(1)
-                    .replace(/\d(?=(\d{3})+\.)/g, "$&,")
-                    .replace(".0", "") + " vnđ";
+          loanRateAll.innerHTML = loanSumRate.innerHTML;
           loansumAll.innerHTML =
                loanAll
                     .toFixed(1)
                     .replace(/\d(?=(\d{3})+\.)/g, "$&,")
                     .replace(".0", "") + " vnđ";
-          loanPay.innerHTML =
-               loanAll
-                    .toFixed(1)
-                    .replace(/\d(?=(\d{3})+\.)/g, "$&,")
-                    .replace(".0", "") + " vnđ";
+          loanPay.innerHTML = loansumAll.innerHTML;
           loanPrepay.innerHTML =
                prepay
                     .toFixed(1)
