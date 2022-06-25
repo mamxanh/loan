@@ -52,23 +52,24 @@ h6 {
      --loan-clr-05: #a0a0a038;
 }
 /* _______________________________________ */
+
 #loan-main {
      padding: 50px 0;
      width: 100%;
      height: auto;
      overflow: hidden;
      height: auto;
+     gap: 30px;
+     flex-direction: column;
+}
+.flex_c {
      display: flex;
      justify-content: center;
-     flex-direction: column;
-     gap: 35px;
+     align-items: center;
 }
 .loan-information {
-     width: 1000px;
      display: none;
      gap: 150px;
-     align-items: center;
-     justify-content: center;
      margin: 0 auto;
 }
 .loan-total-title {
@@ -76,10 +77,7 @@ h6 {
 }
 .loan-total-pay,
 .loan-detail {
-     display: flex;
      width: 50%;
-     justify-content: center;
-     align-items: center;
      flex-direction: column;
      gap: 10px;
      color: var(--loan-clr-text);
@@ -93,14 +91,17 @@ h6 {
 .loan-pay {
      font-size: 40px;
      font-weight: bold;
+     background-color: rgb(240, 240, 240);
+     padding: 5px 0px;
+     text-align: center;
+     min-width: 350px;
+     border-radius: 5px;
+     box-shadow: 0 0 2px rgba(0, 0, 0, 0.362);
 }
 .loan-detail--item {
      font-weight: bold;
 }
 .loan-container-input {
-     display: flex;
-     justify-content: center;
-     align-items: center;
      flex-wrap: wrap;
      gap: 25px;
      column-gap: 20px;
@@ -129,12 +130,13 @@ input:focus {
      color: var(--loan-clr-text);
      background-color: var(--loan-clr-05);
      width: 80px;
+     font-size: 14px;
      height: 35px;
      text-align: center;
      border-radius: 0px 3px 3px 0;
      border: 1px solid var(--loan-clr-500);
      border-left: none;
-     line-height: 37px;
+     line-height: 35px;
 }
 .loan-title {
      color: var(--loan-clr-text);
@@ -149,9 +151,10 @@ input:focus {
      border-radius: 3px 0px 0px 3px;
      width: 300px;
      height: 35px;
+     color: var(--loan-clr-text);
      outline: none;
      border: 1px solid var(--loan-clr-500);
-     font-size: 17px;
+     font-size: 15px;
      transition: 0.3s ease;
 }
 .loan-price {
@@ -205,7 +208,7 @@ input:focus {
      width: 1001px;
      border-spacing: 0;
      display: none;
-     margin: auto;
+     margin: 0 auto;
 }
 .loan-table {
      -ms-overflow-style: none;
@@ -215,41 +218,33 @@ input:focus {
      display: none;
 }
 
-thead {
+.loan-table > thead {
      background-color: var(--loan-clr-500);
      color: #fff;
      box-shadow: inset 0px -1px 0px #eee, 0px 5px 5px -5px rgba(0, 0, 0, 0.1);
      position: relative;
      width: 100%;
 }
-thead tr {
+.loan-table > thead tr {
      display: block;
      position: relative;
 }
 
-td,
-th {
-     min-width: 200px;
-}
-
-th,
-td {
+.loan-table th,
+.loan-table td {
      padding: 5px;
-     text-align: left;
      font-size: 12px;
      text-align: center;
      border: 0.05px solid rgba(61, 61, 61, 0.105);
      font-weight: normal;
+     min-width: 200px;
 }
 
-tbody {
+.loan-table tbody {
      display: block;
      overflow-y: scroll;
      overflow-x: hidden;
-     width: 1001px;
      max-height: 400px;
-}
-tbody {
      -ms-overflow-style: none;
      scrollbar-width: none;
 }
@@ -266,6 +261,7 @@ tbody::-webkit-scrollbar {
      }
      .loan-number {
           width: 280px;
+          font-size: 12px;
      }
      .loan-number.loan-price,
      .progress-loan {
@@ -294,11 +290,10 @@ tbody::-webkit-scrollbar {
           height: 700px;
           width: 100%;
           overflow: hidden;
-          text-align: center;
      }
      .loan-table {
-          max-width: 351px !important;
-          margin: 0 auto;
+          width: 350px !important;
+          margin: auto;
      }
      .loan-information {
           width: 360px;
@@ -308,25 +303,20 @@ tbody::-webkit-scrollbar {
      }
      .loan-detail--item,
      .loan-total-title,
-     .loan-ex {
-          font-size: 13px;
+     .loan-ex,
+     .loan-detail > div {
+          font-size: 12px;
      }
      .loan-pay {
-          font-size: 25px;
+          min-width: 240px;
+          font-size: 22px;
      }
-     td,
-     th {
+     .loan-table th,
+     .loan-table td {
           min-width: 70px;
-     }
-     th,
-     td {
           padding: 3px 0px;
-          text-align: left;
           font-size: 8px;
           text-align: center;
           border: 0.05px solid #ccc;
-     }
-     .loan-detail > div {
-          font-size: 12px;
      }
 }
