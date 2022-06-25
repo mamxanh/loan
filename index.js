@@ -7,7 +7,7 @@ const inputPrice = document.querySelector(".loan-price");
 const inputMoney = document.querySelector(".loan-money");
 const rate = document.getElementById("rate");
 const time = document.getElementById("time");
-// ____________________________________________________
+// __________________________Format Input Value_________________________
 let loanAPercent = 0;
 inputPrice.oninput = () => {
      inputPrice.value = formatNumber(inputPrice.value);
@@ -77,22 +77,23 @@ $(".loan-btn").addEventListener("click", () => {
      const lastMonth =
           inputMoneyN / timeN +
           (inputMoneyN - (inputMoneyN / timeN) * (timeN - 1)) * (rateN / 100);
+     let tableResults = "";
      if (rateN > 0 && inputMoneyN > 0 && timeN > 0 && inputPriceN > 0) {
           $(".loan-table").style.display = "block";
           $(".loan-information").style.display = "flex";
           const tbody = document.querySelector("tbody");
           tbody.innerHTML = "";
-          let sumRate = 0;
-          let loanAll = 0;
+          let sumRate = (gop = loanAll = goc = lai = 0);
+          let tbodyHTML = "";
           for (let index = 1; index < timeN + 1; index++) {
-               let goc = inputMoneyN - (inputMoneyN / timeN) * index;
-               let lai =
+               goc = inputMoneyN - (inputMoneyN / timeN) * index;
+               lai =
                     (inputMoneyN - (inputMoneyN / timeN) * (index - 1)) *
                     (rateN / 100);
-               let gop = inputMoneyN / timeN + lai;
+               gop = inputMoneyN / timeN + lai;
                sumRate += lai;
                loanAll += gop;
-               let tbodyHTML = `<tr>
+               tbodyHTML = `<tr>
                <th>Tháng thứ ${index}</th>
                <th>${handleFormat(goc)}</th>
                <th>${handleFormat(inputMoneyN / timeN)}</th>
@@ -100,8 +101,9 @@ $(".loan-btn").addEventListener("click", () => {
                <th>${handleFormat(gop)}</th>
           </tr>`;
                if (timeN < 1) return;
-               tbody.innerHTML += tbodyHTML;
+               tableResults += tbodyHTML;
           }
+          tbody.innerHTML = tableResults;
           /*Tổng lãi */ $(".loan-rateall").innerHTML = $(
                ".loan-rate-sum",
           ).innerHTML = handleFormat(sumRate) + " đ";

@@ -70,6 +70,7 @@ h6 {
      display: none;
      gap: 150px;
      margin: 0 auto;
+     transition: 0.35s ease;
 }
 .loan-total-title {
      font-size: 15px;
@@ -208,6 +209,7 @@ input:focus {
      border-spacing: 0;
      display: none;
      margin: 0 auto;
+     transition: 0.35s ease;
 }
 .loan-table {
      -ms-overflow-style: none;
@@ -288,7 +290,7 @@ tbody::-webkit-scrollbar {
           overflow: hidden;
      }
      .loan-table {
-          width: 351px !important;
+          width: 361px !important;
           margin: auto;
      }
      .loan-information {
@@ -309,10 +311,10 @@ tbody::-webkit-scrollbar {
      }
      .loan-table th,
      .loan-table td {
-          min-width: 70px;
+          min-width: 72px;
           padding: 3px 0px;
           font-size: 8px;
           text-align: center;
-          border: 0.05px solid #ccc;
+          border: 0.05px solid #cccccc94;
      }
 }
