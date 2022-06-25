@@ -44,15 +44,16 @@ inputMoney.oninput = () => {
           1 *
           100
      ).toFixed(1);
-     if (a <= 50) {
+     if (a <= 100) {
           progress.value = a;
           output.innerText = a.replace(".0", "") + "%";
      } else {
           inputMoney.value = inputPrice.value;
-          output.innerText = 50 + "%";
-          progress.value = 50;
+          output.innerText = 100 + "%";
+          progress.value = 100;
      }
 };
+progressRate.value = rate.value;
 rate.oninput = () => {
      progressRate.value = rate.value;
 };
