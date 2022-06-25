@@ -43,7 +43,7 @@ h5,
 h6 {
      overflow-wrap: break-word;
 }
-/* _______________________________________ */
+/* ____________________Main Color_________________ */
 
 :root {
      --loan-clr-500: #006f6f;
@@ -51,8 +51,7 @@ h6 {
      --loan-clr-100: #4f777d8d;
      --loan-clr-05: #a0a0a038;
 }
-/* _______________________________________ */
-
+/* ___________________GET GOOÔ___________________ */
 #loan-main {
      padding: 50px 0;
      width: 100%;
@@ -62,7 +61,7 @@ h6 {
      gap: 30px;
      flex-direction: column;
 }
-.flex_c {
+.flex_center {
      display: flex;
      justify-content: center;
      align-items: center;
@@ -113,7 +112,6 @@ h6 {
      padding: 0 100px;
      min-width: 400px;
 }
-
 input:focus {
      outline: 1px solid var(--loan-clr-500);
 }
@@ -252,9 +250,6 @@ input:focus {
 tbody::-webkit-scrollbar {
      display: none;
 }
-/* tbody tr:nth-child(2n) {
-     background-color: var(--loan-clr-05);
-} */
 @media screen and (max-width: 767px) {
      .loan-main,
      .loan-container-input {

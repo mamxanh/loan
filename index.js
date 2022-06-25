@@ -30,11 +30,7 @@ progressTime.oninput = () => {
 output.innerText = loan.value + "%";
 progress.oninput = () => {
      output.innerText = progress.value + "%";
-     let inputMoneyFormat = parseInt(loanAPercent * progress.value);
-     inputMoney.value = inputMoneyFormat
-          .toFixed(3)
-          .replace(/\d(?=(\d{3})+\.)/g, "$&,")
-          .replaceAll(".000", "");
+     inputMoney.value = handleFormat(loanAPercent * progress.value);
 };
 inputMoney.oninput = () => {
      inputMoney.value = formatNumber(inputMoney.value);
@@ -60,24 +56,21 @@ rate.oninput = () => {
 time.oninput = () => {
      progressTime.value = time.value;
 };
-function formatNumber(n) {
-     // format number 1000000 to 1,234,567
+const handleFormat = (a) => {
+     return a
+          .toFixed()
+          .replace(/\D/g, "")
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+const formatNumber = (n) => {
      return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
+};
 $(".loan-btn").addEventListener("click", () => {
      const rateN = progressRate.value / 12;
      const inputMoneyN = inputMoney.value.replaceAll(",", "") * 1;
      const timeN = progressTime.value.replaceAll(",", "") * 1;
      const inputPriceN = inputPrice.value.replaceAll(",", "") * 1;
      const prepay = inputPriceN - inputMoneyN;
-     const handleFormat = (a) => {
-          return a
-               .toFixed()
-               .replace(/\D/g, "")
-               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-               .replace(".00", "");
-     };
      const firstMonth =
           inputMoneyN / timeN +
           (inputMoneyN - (inputMoneyN / timeN) * 0) * (rateN / 100);
@@ -109,8 +102,9 @@ $(".loan-btn").addEventListener("click", () => {
                if (timeN < 1) return;
                tbody.innerHTML += tbodyHTML;
           }
-          /*Tổng lãi */ $(".loan-rate-sum").innerHTML = handleFormat(sumRate) + " đ";
-          $(".loan-rateall").innerHTML = $(".loan-rate-sum").innerHTML;
+          /*Tổng lãi */ $(".loan-rateall").innerHTML = $(
+               ".loan-rate-sum",
+          ).innerHTML = handleFormat(sumRate) + " đ";
           /* Tổng trả */ $(".loan-all").innerHTML = handleFormat(loanAll) + " đ";
           /* Trả trước */ $(".loan-prepay").innerHTML =
                ` (${100 - progress.value * 1})%       ` +
