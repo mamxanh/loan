@@ -49,7 +49,7 @@ h6 {
      --loan-clr-500: #006f6f;
      --loan-clr-text: #00354f;
      --loan-clr-100: #4f777d8d;
-     --loan-clr-05: #a0a0a038;
+     --loan-clr-05: rgb(240, 240, 240);
 }
 /* ___________________GET GOOÔ___________________ */
 #loan-main {
@@ -133,7 +133,7 @@ input:focus {
      height: 35px;
      text-align: center;
      border-radius: 0px 3px 3px 0;
-     border: 1px solid var(--loan-clr-500);
+     border: 1px solid var(--loan-clr-100);
      border-left: none;
      line-height: 35px;
 }
@@ -152,7 +152,7 @@ input:focus {
      height: 35px;
      color: var(--loan-clr-text);
      outline: none;
-     border: 1px solid var(--loan-clr-500);
+     border: 1px solid var(--loan-clr-100);
      font-size: 15px;
      transition: 0.3s ease;
 }
