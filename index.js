@@ -1,23 +1,12 @@
+const $ = document.querySelector.bind(document);
 const progress = document.getElementById("loan");
 const output = document.querySelector(".loan-percent-item");
-const rate = document.getElementById("rate");
 const progressRate = document.querySelector(".progress-rate");
-const progressLoan = document.querySelector(".progress-loan");
-const time = document.getElementById("time");
 const progressTime = document.querySelector(".progress-time");
-const progressMoney = document.querySelector(".progress-money");
 const inputPrice = document.querySelector(".loan-price");
 const inputMoney = document.querySelector(".loan-money");
-const loanBtn = document.querySelector(".loan-btn");
-const loanSumRate = document.querySelector(".loan-rate-sum");
-const loansumAll = document.querySelector(".loan-all");
-const loanTable = document.querySelector(".loan-table");
-const loanPay = document.querySelector(".loan-pay");
-const loanInfo = document.querySelector(".loan-information");
-const loanPrepay = document.querySelector(".loan-prepay");
-const loanFirstmonth = document.querySelector(".loan-firstmonth");
-const loanRateAll = document.querySelector(".loan-rateall");
-const loanLastMonth = document.querySelector(".loan-lastmonth");
+const rate = document.getElementById("rate");
+const time = document.getElementById("time");
 // ____________________________________________________
 let loanAPercent = 0;
 inputPrice.oninput = () => {
@@ -38,7 +27,7 @@ progressTime.oninput = () => {
           return (progressTime.value = 0);
      }
 };
-output.innerText = progress.value + "%";
+output.innerText = loan.value + "%";
 progress.oninput = () => {
      output.innerText = progress.value + "%";
      let inputMoneyFormat = parseInt(loanAPercent * progress.value);
@@ -64,11 +53,9 @@ inputMoney.oninput = () => {
           progress.value = 50;
      }
 };
-progressRate.value = rate.value;
 rate.oninput = () => {
      progressRate.value = rate.value;
 };
-progressTime.value = time.value;
 time.oninput = () => {
      progressTime.value = time.value;
 };
@@ -77,13 +64,12 @@ function formatNumber(n) {
      return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-loanBtn.addEventListener("click", () => {
+$(".loan-btn").addEventListener("click", () => {
      const rateN = progressRate.value / 12;
      const inputMoneyN = inputMoney.value.replaceAll(",", "") * 1;
      const timeN = progressTime.value.replaceAll(",", "") * 1;
      const inputPriceN = inputPrice.value.replaceAll(",", "") * 1;
      const prepay = inputPriceN - inputMoneyN;
-     // const rateall = inputPriceN - inputMoneyN;
      const handleFormat = (a) => {
           return a
                .toFixed()
@@ -98,8 +84,8 @@ loanBtn.addEventListener("click", () => {
           inputMoneyN / timeN +
           (inputMoneyN - (inputMoneyN / timeN) * (timeN - 1)) * (rateN / 100);
      if (rateN > 0 && inputMoneyN > 0 && timeN > 0 && inputPriceN > 0) {
-          loanTable.style.display = "block";
-          loanInfo.style.display = "flex";
+          $(".loan-table").style.display = "block";
+          $(".loan-information").style.display = "flex";
           const tbody = document.querySelector("tbody");
           tbody.innerHTML = "";
           let sumRate = 0;
@@ -122,16 +108,16 @@ loanBtn.addEventListener("click", () => {
                if (timeN < 1) return;
                tbody.innerHTML += tbodyHTML;
           }
-          /*Tổng lãi */ loanSumRate.innerHTML = handleFormat(sumRate) + " đ";
-          loanRateAll.innerHTML = loanSumRate.innerHTML;
-          /* Tổng trả */ loansumAll.innerHTML = handleFormat(loanAll) + " đ";
-          /* Trả trước */ loanPrepay.innerHTML =
+          /*Tổng lãi */ $(".loan-rate-sum").innerHTML = handleFormat(sumRate) + " đ";
+          $(".loan-rateall").innerHTML = $(".loan-rate-sum").innerHTML;
+          /* Tổng trả */ $(".loan-all").innerHTML = handleFormat(loanAll) + " đ";
+          /* Trả trước */ $(".loan-prepay").innerHTML =
                ` (${100 - progress.value * 1})%       ` +
                handleFormat(prepay) +
                " đ";
-          loanPay.innerHTML = handleFormat(loanAll + prepay) + " đ";
-          loanFirstmonth.innerHTML = handleFormat(firstMonth) + " đ";
-          loanLastMonth.innerHTML = handleFormat(lastMonth) + " đ";
+          $(".loan-pay").innerHTML = handleFormat(loanAll + prepay) + " đ";
+          $(".loan-firstmonth").innerHTML = handleFormat(firstMonth) + " đ";
+          $(".loan-lastmonth").innerHTML = handleFormat(lastMonth) + " đ";
      } else {
           alert("Vui lòng nhập đủ thông tin dự toán");
      }

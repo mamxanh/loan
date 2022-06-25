@@ -200,7 +200,8 @@ input:focus {
      transition: 0.35s ease;
 }
 .loan-btn:hover {
-     opacity: 0.8;
+     opacity: 0.9;
+     transform: scale(1.01);
 }
 .loan-table {
      table-layout: fixed;
