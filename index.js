@@ -65,6 +65,7 @@ const handleFormat = (a) => {
 const formatNumber = (n) => {
      return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
+// __________________________Math On CLICK _________________________
 $(".loan-btn").addEventListener("click", () => {
      const rateN = progressRate.value / 12;
      const inputMoneyN = inputMoney.value.replaceAll(",", "") * 1;
@@ -105,15 +106,15 @@ $(".loan-btn").addEventListener("click", () => {
           tbody.innerHTML = tableResults;
           /*Tổng lãi */ $(".loan-rateall").innerHTML = $(
                ".loan-rate-sum",
-          ).innerHTML = handleFormat(sumRate) + " đ";
-          /* Tổng trả */ $(".loan-all").innerHTML = handleFormat(loanAll) + " đ";
+          ).innerHTML = handleFormat(sumRate) + " đ̲";
+          /* Tổng trả */ $(".loan-all").innerHTML = handleFormat(loanAll) + " đ̲";
           /* Trả trước */ $(".loan-prepay").innerHTML =
                ` (${100 - progress.value * 1}%)       ` +
                handleFormat(prepay) +
-               " đ";
-          $(".loan-pay").innerHTML = handleFormat(loanAll + prepay) + " đ";
-          $(".loan-firstmonth").innerHTML = handleFormat(firstMonth) + " đ";
-          $(".loan-lastmonth").innerHTML = handleFormat(lastMonth) + " đ";
+               " đ̲";
+          $(".loan-pay").innerHTML = handleFormat(loanAll + prepay) + " đ̲";
+          $(".loan-firstmonth").innerHTML = handleFormat(firstMonth) + " đ̲";
+          $(".loan-lastmonth").innerHTML = handleFormat(lastMonth) + " đ̲";
      } else {
           alert("Vui lòng nhập đủ thông tin dự toán");
      }
