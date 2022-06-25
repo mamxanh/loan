@@ -77,8 +77,8 @@ $(".loan-btn").addEventListener("click", () => {
      const lastMonth =
           inputMoneyN / timeN +
           (inputMoneyN - (inputMoneyN / timeN) * (timeN - 1)) * (rateN / 100);
-     let tableResults = "";
      if (rateN > 0 && inputMoneyN > 0 && timeN > 0 && inputPriceN > 0) {
+          let tableResults = "";
           $(".loan-table").style.display = "block";
           $(".loan-information").style.display = "flex";
           const tbody = document.querySelector("tbody");
@@ -99,8 +99,7 @@ $(".loan-btn").addEventListener("click", () => {
                <th>${handleFormat(inputMoneyN / timeN)}</th>
                <th>${handleFormat(lai)}</th>
                <th>${handleFormat(gop)}</th>
-          </tr>`;
-               if (timeN < 1) return;
+                      </tr>`;
                tableResults += tbodyHTML;
           }
           tbody.innerHTML = tableResults;
@@ -109,7 +108,7 @@ $(".loan-btn").addEventListener("click", () => {
           ).innerHTML = handleFormat(sumRate) + " đ";
           /* Tổng trả */ $(".loan-all").innerHTML = handleFormat(loanAll) + " đ";
           /* Trả trước */ $(".loan-prepay").innerHTML =
-               ` (${100 - progress.value * 1})%       ` +
+               ` (${100 - progress.value * 1}%)       ` +
                handleFormat(prepay) +
                " đ";
           $(".loan-pay").innerHTML = handleFormat(loanAll + prepay) + " đ";
